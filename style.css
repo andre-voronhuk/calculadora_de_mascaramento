@@ -1,0 +1,128 @@
+html,
+body,
+input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+
+    --primary: rgb(104, 31, 172);
+    --secundary: #f3b6ff;
+    --primary-darker: rgb(68, 8, 124);
+    --primary-lighter: rgb(231, 206, 255);
+}
+
+
+body {
+    line-height: 1;
+    background-color: var(--primary);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    flex-direction: column;
+}
+
+.content {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+
+
+    background-color: var(--secundary);
+
+
+
+}
+
+.title {
+    padding: 1rem;
+    color: var(--primary);
+    text-align: center;
+    display: flex;
+    font-size: large;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-lighter);
+    min-height: calc(80vh - 5rem);
+
+    align-items: center;
+}
+
+
+.card {
+    padding: 1rem;
+    display: flex;
+    margin: 0.3rem;
+    margin-bottom: 1rem;
+    background-color: var(--primary);
+    height: 80%;
+    width: 90%;
+    text-align: center;
+    vertical-align: center;
+    flex-flow: column;
+    color: var(--primary-lighter);
+    border-radius: 12px;
+
+
+}
+
+.resultados {
+    height: 15vh;
+    text-align: center;
+    vertical-align: center;
+    justify-content: center;
+}
+
+.input-field {
+    margin: 0.2rem;
+    padding: 0.5rem;
+    font-weight: 800;
+
+    border-radius: 8px;
+    border: 3px var(--primary-lighter) solid;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    font-size: larger;
+}
+
+option {
+    font-size: large;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+
+}
+
+
+input:active,
+input:focus,
+input:hover,
+select:focus,
+select:active,
+select:hover {
+
+    border: 3px var(--primary-lighter) dashed;
+    outline: none;
+
+}
+
+.little-text {
+    margin: 3rem;
+    font-weight: 300;
+    font-size: small;
+
+}
