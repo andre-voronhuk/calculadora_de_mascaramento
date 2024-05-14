@@ -1,11 +1,7 @@
 function calculateMasking() {
-    // Obtendo os valores dos campos de entrada
+
     const cond_aerea_testada = parseFloat(document.getElementById('ac_t').value);
     const cond_aerea_nao_testada = parseFloat(document.getElementById('ac_nte').value);
-
-    // const cond_ossea_testada = parseFloat(document.getElementById('bc_t').value);
-    // const cond_ossea_nao_testada = parseFloat(document.getElementById('bc_nte').value);
-
     const frequency = document.getElementById('frequency').value;
 
     if (frequency == 0) {
@@ -13,6 +9,7 @@ function calculateMasking() {
 
         return;
     }
+
     // Atenuação Interaural para condução aérea
     const IA = getIA();
 
@@ -26,22 +23,17 @@ function calculateMasking() {
 
 
     if (needsMasking) {
-        // Calcula o mascaramento para condução aérea e óssea
-        const masking_air = cond_aerea_nao_testada + IA - 10;
 
-        // const masking_bone = cond_ossea_nao_testada + 10;
-
-        // Cria a mensagem de resultado formatada
         const resultMessage = ` Frequência: ${frequency} Hz
         <br><br>
       Mascaramento Aéreo: ${qtd_mascaramento} dB <br> <br>
       
     `;
 
-        // Exibe a mensagem de resultado na div 'result'
+
         document.getElementById('result').innerHTML = resultMessage;
     } else {
-        // Informa que o mascaramento não é necessário
+
         document.getElementById('result').innerHTML = `Frequência: ${frequency} Hz  <br><br>Mascaramento não é necessário.`
             ;
     }
@@ -62,14 +54,7 @@ function getIA() {
 }
 
 function checkMaskingNecessity(cond_aerea_testada, cond_aerea_nao_testada, IA) {
-    console.log(cond_aerea_nao_testada + " nao testada")
-    console.log(cond_aerea_testada - IA + "  (quanto chega la) testada - IA")
-    console.log(cond_aerea_nao_testada - 10 + "  ossea estimada")
-
 
     return (cond_aerea_testada - IA) > cond_aerea_nao_testada - 10
-
-
-    // cond_aerea_testada - IA) o quanto o cara ouve 
 
 }
