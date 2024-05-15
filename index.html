@@ -27,18 +27,24 @@
                 <input type="number" name="" id="ac_t" onkeyup="calculateMasking()" class="input-field">
 
             </div>
-            <!-- <div class="card">
-                Limiar de Cond. ÓSSEA da Orelha em Teste
-                <input type="number" name="" id="bc_t" class="input-field">
-            </div> -->
+
             <div class="card">
-                Limiar Limiar AÉREO da Orelha Colateral
+                Limiar AÉREO da Orelha Colateral
                 <input type="number" name="" id="ac_nte" onkeyup="calculateMasking()" class="input-field">
             </div>
-            <!-- <div class="card">
-                Limiar de Cond. ÓSSEA da Orelha Colateral
-                <input type="number" name="" id="bc_nte" class="input-field">
-            </div> -->
+
+            <label class="checkbox-label">
+                <input class="checkbox" type="checkbox" id="toggle_bc_nte" onclick="toggleBoneConduction()">
+                <h5>Informar
+                    limiar de condução
+                    óssea</h5>
+
+            </label>
+            <div class="card hidden" id="bc_nte_div">
+                Limiar cond. ÓSSEA da Orelha Colateral
+                <input type="number" name="" id="bc_nte" onchange="calculateMasking()" onkeyup="calculateMasking()"
+                    class="input-field">
+            </div>
             <div class="card">
                 Frequencia
 
@@ -66,9 +72,9 @@
             </div>
 
         </div>
-        <div class="little-text">* valores de limiares Osseos fixados em 10 db a menos que o aereo, conforme estimado
-            pela
+        <div class="little-text">* Ao omitir o limiar Osseo, sera estimado em 10 db a menos que o aereo, conforme a
             literatura.
+
         </div>
     </div>
 

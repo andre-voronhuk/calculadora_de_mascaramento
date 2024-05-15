@@ -35,7 +35,7 @@ body {
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
-
+    overflow-y: visible;
 
     background-color: var(--secundary);
 
@@ -54,21 +54,45 @@ body {
 }
 
 .container {
-    padding: 0.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     background-color: var(--primary-lighter);
-    min-height: calc(80vh - 5rem);
+
 
     align-items: center;
 }
 
+.checkbox-label {
+    font-size: larger;
+    font-weight: 600;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.checkbox {
+    box-sizing: border-box;
+    border: 3px solid red;
+    justify-content: center;
+    margin-right: 0.8rem;
+    min-width: 2rem;
+    min-height: 2rem;
+
+}
+
+
 
 .card {
     padding: 1rem;
-    display: flex;
     margin: 0.3rem;
-    margin-bottom: 1rem;
+    display: flex;
+
     background-color: var(--primary);
     height: 80%;
     width: 90%;
@@ -107,6 +131,9 @@ option {
 
 }
 
+.hidden {
+    display: none;
+}
 
 input:active,
 input:focus,
@@ -120,9 +147,15 @@ select:hover {
 
 }
 
+.checkbox::content {
+    background-color: red;
+    border-color: red;
+}
+
 .little-text {
-    margin: 3rem;
-    font-weight: 300;
+
+    margin: 2rem 0.5rem 1rem 1rem;
+    font-weight: 400;
     font-size: small;
 
 }

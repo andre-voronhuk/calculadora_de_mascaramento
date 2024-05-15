@@ -1,8 +1,25 @@
+informado_cond_ossea = false;
+
+function toggleBoneConduction() {
+    const bcNteDiv = document.getElementById('bc_nte_div');
+    const checkbox = document.getElementById('toggle_bc_nte');
+
+    if (checkbox.checked) {
+
+        bcNteDiv.classList.remove('hidden');
+        informado_cond_ossea = true;
+    } else {
+        bcNteDiv.classList.add('hidden');
+        informado_cond_ossea = false;
+    }
+    calculateMasking();
+}
 function calculateMasking() {
 
     const cond_aerea_testada = parseFloat(document.getElementById('ac_t').value);
     const cond_aerea_nao_testada = parseFloat(document.getElementById('ac_nte').value);
     const frequency = document.getElementById('frequency').value;
+
 
     if (frequency == 0) {
         document.getElementById('result').innerHTML = "Preencha os campos para calcular o mascaramento."
@@ -14,15 +31,31 @@ function calculateMasking() {
     const IA = getIA();
 
     let qtd_ruido_chega = cond_aerea_testada - IA;
+
     let ossea = cond_aerea_nao_testada - 10;
+
+    if (informado_cond_ossea) {
+        ossea = parseFloat(document.getElementById('bc_nte').value);
+    } else {
+        ossea = cond_aerea_nao_testada - 10;
+    }
 
     let sensacao = qtd_ruido_chega - ossea;
 
     let qtd_mascaramento = sensacao + 10;
+
     const needsMasking = checkMaskingNecessity(cond_aerea_testada, cond_aerea_nao_testada, IA);
 
+    if (qtd_mascaramento.toString() == "NaN") {
+        document.getElementById('result').innerHTML = "Preencha os campos para calcular o mascaramento."
 
-    if (needsMasking) {
+        return;
+    }
+
+
+
+    if (needsMasking && qtd_mascaramento > 0) {
+
 
         const resultMessage = ` Frequência: ${frequency} Hz
         <br><br>
